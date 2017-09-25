@@ -36,7 +36,7 @@ export default class Mastodon extends React.PureComponent {
     // Protocol handler
     // Ask after 5 minutes
     if (typeof navigator.registerProtocolHandler !== 'undefined') {
-      const handlerUrl = window.location.protocol + '//' + window.location.host + '/intent?uri=%s';
+      const handlerUrl = window.location.protocol + '//' + window.location.host + '/mstdn/intent?uri=%s';
       window.setTimeout(() => navigator.registerProtocolHandler('web+mastodon', handlerUrl, 'Mastodon'), 5 * 60 * 1000);
     }
 
@@ -56,7 +56,7 @@ export default class Mastodon extends React.PureComponent {
     return (
       <IntlProvider locale={locale} messages={messages}>
         <Provider store={store}>
-          <BrowserRouter basename='/web'>
+          <BrowserRouter basename='/mstdn/web'>
             <ScrollContext>
               <Route path='/' component={UI} />
             </ScrollContext>

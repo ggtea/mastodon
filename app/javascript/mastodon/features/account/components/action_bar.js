@@ -58,7 +58,7 @@ export default class ActionBar extends React.PureComponent {
     menu.push(null);
 
     if (account.get('id') === me) {
-      menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
+      menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/mstdn/settings/profile' });
     } else {
       if (account.getIn(['relationship', 'muting'])) {
         menu.push({ text: intl.formatMessage(messages.unmute, { name: account.get('username') }), action: this.props.onMute });

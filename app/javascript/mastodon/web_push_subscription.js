@@ -36,7 +36,7 @@ const unsubscribe = ({ registration, subscription }) =>
   subscription ? subscription.unsubscribe().then(() => registration) : registration;
 
 const sendSubscriptionToBackend = (subscription) =>
-  axios.post('/api/web/push_subscriptions', {
+  axios.post('/mstdn/api/web/push_subscriptions', {
     subscription,
   }).then(response => response.data);
 

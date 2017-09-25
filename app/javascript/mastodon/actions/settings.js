@@ -16,7 +16,7 @@ export function changeSetting(key, value) {
 
 export function saveSettings() {
   return (_, getState) => {
-    axios.put('/api/web/settings', {
+    axios.put('/mstdn/api/web/settings', {
       data: getState().get('settings').toJS(),
     });
   };

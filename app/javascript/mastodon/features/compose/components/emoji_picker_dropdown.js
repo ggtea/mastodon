@@ -24,7 +24,7 @@ const messages = defineMessages({
   flags: { id: 'emoji_button.flags', defaultMessage: 'Flags' },
 });
 
-const assetHost = process.env.CDN_HOST || '';
+const assetHost = process.env.CDN_HOST || '/mstdn';
 const backgroundImageFn = () => `${assetHost}/emoji/sheet.png`;
 const listenerOptions = detectPassiveEvents.hasSupport ? { passive: true } : false;
 

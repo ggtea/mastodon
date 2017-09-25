@@ -23,7 +23,7 @@ export default class EmbedModal extends ImmutablePureComponent {
 
     this.setState({ loading: true });
 
-    axios.post('/api/web/embed', { url }).then(res => {
+    axios.post('/mstdn/api/web/embed', { url }).then(res => {
       this.setState({ loading: false, oembed: res.data });
 
       const iframeDocument = this.iframe.contentWindow.document;

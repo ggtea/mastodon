@@ -85,9 +85,9 @@ export default class GettingStarted extends ImmutablePureComponent {
           <ColumnSubheading text={intl.formatMessage(messages.navigation_subheading)} />
           {navItems}
           <ColumnSubheading text={intl.formatMessage(messages.settings_subheading)} />
-          <ColumnLink icon='book' text={intl.formatMessage(messages.info)} href='/about/more' />
-          <ColumnLink icon='cog' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />
-          <ColumnLink icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
+          <ColumnLink icon='book' text={intl.formatMessage(messages.info)} href='/mstdn/about/more' />
+          <ColumnLink icon='cog' text={intl.formatMessage(messages.preferences)} href='/mstdn/settings/preferences' />
+          <ColumnLink icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/mstdn/auth/sign_out' method='delete' />
         </div>
 
         <div className='getting-started__footer scrollable optionally-scrollable'>
