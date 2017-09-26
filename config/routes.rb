@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     confirmations:      'auth/confirmations',
   }
 
-  get '/users/:username', to: redirect('/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
+  get '/users/:username', to: redirect('/mstdn/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
 
   resources :accounts, path: 'users', only: [:show], param: :username do
     resources :stream_entries, path: 'updates', only: [:show] do
@@ -140,7 +140,7 @@ Rails.application.routes.draw do
     resources :custom_emojis, only: [:index, :new, :create, :destroy]
   end
 
-  get '/admin', to: redirect('/admin/settings/edit', status: 302)
+  get '/admin', to: redirect('/mstdn/admin/settings/edit', status: 302)
 
   namespace :api do
     # PubSubHubbub outgoing subscriptions
