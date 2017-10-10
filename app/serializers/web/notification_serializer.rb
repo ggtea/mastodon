@@ -95,7 +95,7 @@ class Web::NotificationSerializer < ActiveModel::Serializer
         icon: full_asset_url('web-push-icon_favourite.png', skip_pipeline: true),
         todo: 'request',
         method: 'POST',
-        action: "/api/v1/statuses/#{object.target_status.id}/favourite",
+        action: "/mstdn/api/v1/statuses/#{object.target_status.id}/favourite",
       }
     end
 
@@ -105,7 +105,7 @@ class Web::NotificationSerializer < ActiveModel::Serializer
         icon: full_asset_url('web-push-icon_reblog.png', skip_pipeline: true),
         todo: 'request',
         method: 'POST',
-        action: "/api/v1/statuses/#{object.target_status.id}/reblog",
+        action: "/mstdn/api/v1/statuses/#{object.target_status.id}/reblog",
       }
     end
 
