@@ -4,7 +4,7 @@ import Trie from 'substring-trie';
 
 const trie = new Trie(Object.keys(unicodeMapping));
 
-const assetHost = process.env.CDN_HOST || '';
+const assetHost = process.env.CDN_HOST || '/mstdn';
 
 const emojify = (str, customEmojis = {}) => {
   const tagCharsWithoutEmojis = '<&';
