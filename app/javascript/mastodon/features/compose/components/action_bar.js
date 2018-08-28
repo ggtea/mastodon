@@ -30,8 +30,8 @@ export default class ActionBar extends React.PureComponent {
 
     let menu = [];
 
-    menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
-    menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
+    menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/mstdn/settings/profile' });
+    menu.push({ text: intl.formatMessage(messages.preferences), href: '/mstdn/settings/preferences' });
     menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
     menu.push(null);
     menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
@@ -41,7 +41,7 @@ export default class ActionBar extends React.PureComponent {
     menu.push({ text: intl.formatMessage(messages.mutes), to: '/mutes' });
     menu.push({ text: intl.formatMessage(messages.blocks), to: '/blocks' });
     menu.push({ text: intl.formatMessage(messages.domain_blocks), to: '/domain_blocks' });
-    menu.push({ text: intl.formatMessage(messages.filters), href: '/filters' });
+    menu.push({ text: intl.formatMessage(messages.filters), href: '/mstdn/filters' });
 
     return (
       <div className='compose__action-bar'>

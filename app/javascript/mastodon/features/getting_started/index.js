@@ -136,7 +136,7 @@ export default class GettingStarted extends ImmutablePureComponent {
         <div className='getting-started getting-started__footer'>
           <ul>
             <li><a href='https://bridge.joinmastodon.org/' target='_blank'><FormattedMessage id='getting_started.find_friends' defaultMessage='Find friends from Twitter' /></a> · </li>
-            {invitesEnabled && <li><a href='/invites' target='_blank'><FormattedMessage id='getting_started.invite' defaultMessage='Invite people' /></a> · </li>}
+            {invitesEnabled && <li><a href='/mstdn/invites' target='_blank'><FormattedMessage id='getting_started.invite' defaultMessage='Invite people' /></a> · </li>}
             {multiColumn && <li><Link to='/keyboard-shortcuts'><FormattedMessage id='navigation_bar.keyboard_shortcuts' defaultMessage='Hotkeys' /></Link> · </li>}
             <li><a href='/mstdn/auth/edit'><FormattedMessage id='getting_started.security' defaultMessage='Security' /></a> · </li>
             <li><a href='/mstdn/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this instance' /></a> · </li>
