@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   }
 
   get '/users/:username', to: redirect('/mstdn/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
+  get '/authorize_follow', to: redirect { |_, request| "/mstdn/authorize_interaction?#{request.params.to_query}" }
 
   resources :accounts, path: 'users', only: [:show], param: :username do
     resources :stream_entries, path: 'updates', only: [:show] do
