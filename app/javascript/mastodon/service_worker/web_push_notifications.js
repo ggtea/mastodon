@@ -11,8 +11,8 @@ const notify = options =>
       const group = {
         title: formatMessage('notifications.group', options.data.preferred_locale, { count: notifications.length + 1 }),
         body: notifications.sort((n1, n2) => n1.timestamp < n2.timestamp).map(notification => notification.title).join('\n'),
-        badge: '/badge.png',
-        icon: '/android-chrome-192x192.png',
+        badge: '/mstdn/badge.png',
+        icon: '/mstdn/android-chrome-192x192.png',
         tag: GROUP_TAG,
         data: {
           url: (new URL('/mstdn/web/notifications', self.location)).href,
@@ -80,7 +80,7 @@ const handlePush = (event) => {
 
   // Placeholder until more information can be loaded
   event.waitUntil(
-    fetchFromApi(`/api/v1/notifications/${notification_id}`, 'get', access_token).then(notification => {
+    fetchFromApi(`/mstdn/api/v1/notifications/${notification_id}`, 'get', access_token).then(notification => {
       const options = {};
 
       options.title     = formatMessage(`notification.${notification.type}`, preferred_locale, { name: notification.account.display_name.length > 0 ? notification.account.display_name : notification.account.username });
@@ -88,9 +88,9 @@ const handlePush = (event) => {
       options.icon      = notification.account.avatar_static;
       options.timestamp = notification.created_at && new Date(notification.created_at);
       options.tag       = notification.id;
-      options.badge     = '/badge.png';
+      options.badge     = '/mstdn/badge.png';
       options.image     = notification.status && notification.status.media_attachments.length > 0 && notification.status.media_attachments[0].preview_url || undefined;
-      options.data      = { access_token, preferred_locale, id: notification.status ? notification.status.id : notification.account.id, url: notification.status ? `/web/statuses/${notification.status.id}` : `/web/accounts/${notification.account.id}` };
+      options.data      = { access_token, preferred_locale, id: notification.status ? notification.status.id : notification.account.id, url: notification.status ? `/mstdn/web/statuses/${notification.status.id}` : `/mstdn/web/accounts/${notification.account.id}` };
 
       if (notification.status && notification.status.spoiler_text || notification.status.sensitive) {
         options.data.hiddenBody  = htmlToPlainText(notification.status.content);
@@ -114,8 +114,8 @@ const handlePush = (event) => {
         icon,
         tag: notification_id,
         timestamp: new Date(),
-        badge: '/badge.png',
-        data: { access_token, preferred_locale, url: '/web/notifications' },
+        badge: '/mstdn/badge.png',
+        data: { access_token, preferred_locale, url: '/mstdn/web/notifications' },
       });
     })
   );
@@ -123,19 +123,19 @@ const handlePush = (event) => {
 
 const actionExpand = preferred_locale => ({
   action: 'expand',
-  icon: '/web-push-icon_expand.png',
+  icon: '/mstdn/web-push-icon_expand.png',
   title: formatMessage('status.show_more', preferred_locale),
 });
 
 const actionReblog = preferred_locale => ({
   action: 'reblog',
-  icon: '/web-push-icon_reblog.png',
+  icon: '/mstdn/web-push-icon_reblog.png',
   title: formatMessage('status.reblog', preferred_locale),
 });
 
 const actionFavourite = preferred_locale => ({
   action: 'favourite',
-  icon: '/web-push-icon_favourite.png',
+  icon: '/mstdn/web-push-icon_favourite.png',
   title: formatMessage('status.favourite', preferred_locale),
 });
 
@@ -196,10 +196,10 @@ const handleNotificationClick = (event) => {
         resolve(expandNotification(event.notification));
       } else if (event.action === 'reblog') {
         const { data } = event.notification;
-        resolve(fetchFromApi(`/api/v1/statuses/${data.id}/reblog`, 'post', data.access_token).then(() => removeActionFromNotification(event.notification, 'reblog')));
+        resolve(fetchFromApi(`/mstdn/api/v1/statuses/${data.id}/reblog`, 'post', data.access_token).then(() => removeActionFromNotification(event.notification, 'reblog')));
       } else if (event.action === 'favourite') {
         const { data } = event.notification;
-        resolve(fetchFromApi(`/api/v1/statuses/${data.id}/favourite`, 'post', data.access_token).then(() => removeActionFromNotification(event.notification, 'favourite')));
+        resolve(fetchFromApi(`/mstdn/api/v1/statuses/${data.id}/favourite`, 'post', data.access_token).then(() => removeActionFromNotification(event.notification, 'favourite')));
       } else {
         reject(`Unknown action: ${event.action}`);
       }
