@@ -42,7 +42,7 @@ class MastodonMount extends React.PureComponent {
     }
 
     return (
-      <BrowserRouter basename='/web'>
+      <BrowserRouter basename='/mstdn/web'>
         <ScrollContext>
           <Route path='/' component={UI} />
         </ScrollContext>
