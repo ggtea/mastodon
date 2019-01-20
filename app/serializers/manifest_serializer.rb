@@ -44,7 +44,7 @@ class ManifestSerializer < ActiveModel::Serializer
   end
 
   def start_url
-    '/web/timelines/home'
+    '/mstdn/web/timelines/home'
   end
 
   def scope
