@@ -88,8 +88,8 @@ class ActionBar extends React.PureComponent {
     }
 
     if (account.get('id') === me) {
-      menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
-      menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
+      menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/mstdn/settings/profile' });
+      menu.push({ text: intl.formatMessage(messages.preferences), href: '/mstdn/settings/preferences' });
       menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
       menu.push(null);
       menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
@@ -154,7 +154,7 @@ class ActionBar extends React.PureComponent {
 
     if (account.get('id') !== me && isStaff) {
       menu.push(null);
-      menu.push({ text: intl.formatMessage(messages.admin_account, { name: account.get('username') }), href: `/admin/accounts/${account.get('id')}` });
+      menu.push({ text: intl.formatMessage(messages.admin_account, { name: account.get('username') }), href: `/mstdn/admin/accounts/${account.get('id')}` });
     }
 
     return (

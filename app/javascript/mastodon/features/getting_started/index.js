@@ -94,7 +94,7 @@ class GettingStarted extends ImmutablePureComponent {
 
       if (profile_directory) {
         navItems.push(
-          <ColumnLink key={i++} icon='address-book' text={intl.formatMessage(messages.profile_directory)} href='/explore' />
+          <ColumnLink key={i++} icon='address-book' text={intl.formatMessage(messages.profile_directory)} href='/mstdn/explore' />
         );
 
         height += 48;
@@ -107,7 +107,7 @@ class GettingStarted extends ImmutablePureComponent {
       height += 34;
     } else if (profile_directory) {
       navItems.push(
-        <ColumnLink key={i++} icon='address-book' text={intl.formatMessage(messages.profile_directory)} href='/explore' />
+        <ColumnLink key={i++} icon='address-book' text={intl.formatMessage(messages.profile_directory)} href='/mstdn/explore' />
       );
 
       height += 48;
@@ -129,7 +129,7 @@ class GettingStarted extends ImmutablePureComponent {
     if (!multiColumn) {
       navItems.push(
         <ColumnSubheading key={i++} text={intl.formatMessage(messages.settings_subheading)} />,
-        <ColumnLink key={i++} icon='gears' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />,
+        <ColumnLink key={i++} icon='gears' text={intl.formatMessage(messages.preferences)} href='/mstdn/settings/preferences' />,
       );
 
       height += 34 + 48;
@@ -156,15 +156,15 @@ class GettingStarted extends ImmutablePureComponent {
 
           <div className='getting-started__footer'>
             <ul>
-              {invitesEnabled && <li><a href='/invites' target='_blank'><FormattedMessage id='getting_started.invite' defaultMessage='Invite people' /></a> · </li>}
+              {invitesEnabled && <li><a href='/mstdn/invites' target='_blank'><FormattedMessage id='getting_started.invite' defaultMessage='Invite people' /></a> · </li>}
               {multiColumn && <li><Link to='/keyboard-shortcuts'><FormattedMessage id='navigation_bar.keyboard_shortcuts' defaultMessage='Hotkeys' /></Link> · </li>}
-              <li><a href='/auth/edit'><FormattedMessage id='getting_started.security' defaultMessage='Security' /></a> · </li>
-              <li><a href='/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this instance' /></a> · </li>
+              <li><a href='/mstdn/auth/edit'><FormattedMessage id='getting_started.security' defaultMessage='Security' /></a> · </li>
+              <li><a href='/mstdn/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this instance' /></a> · </li>
               <li><a href='https://joinmastodon.org/apps' target='_blank'><FormattedMessage id='navigation_bar.apps' defaultMessage='Mobile apps' /></a> · </li>
-              <li><a href='/terms' target='_blank'><FormattedMessage id='getting_started.terms' defaultMessage='Terms of service' /></a> · </li>
-              <li><a href='/settings/applications' target='_blank'><FormattedMessage id='getting_started.developers' defaultMessage='Developers' /></a> · </li>
+              <li><a href='/mstdn/terms' target='_blank'><FormattedMessage id='getting_started.terms' defaultMessage='Terms of service' /></a> · </li>
+              <li><a href='/mstdn/settings/applications' target='_blank'><FormattedMessage id='getting_started.developers' defaultMessage='Developers' /></a> · </li>
               <li><a href='https://docs.joinmastodon.org' target='_blank'><FormattedMessage id='getting_started.documentation' defaultMessage='Documentation' /></a> · </li>
-              <li><a href='/auth/sign_out' data-method='delete'><FormattedMessage id='navigation_bar.logout' defaultMessage='Logout' /></a></li>
+              <li><a href='/mstdn/auth/sign_out' data-method='delete'><FormattedMessage id='navigation_bar.logout' defaultMessage='Logout' /></a></li>
             </ul>
 
             <p>

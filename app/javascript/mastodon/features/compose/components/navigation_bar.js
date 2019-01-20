@@ -28,7 +28,7 @@ export default class NavigationBar extends ImmutablePureComponent {
             <strong className='navigation-bar__profile-account'>@{this.props.account.get('acct')}</strong>
           </Permalink>
 
-          <a href='/settings/profile' className='navigation-bar__profile-edit'><FormattedMessage id='navigation_bar.edit_profile' defaultMessage='Edit profile' /></a>
+          <a href='/mstdn/settings/profile' className='navigation-bar__profile-edit'><FormattedMessage id='navigation_bar.edit_profile' defaultMessage='Edit profile' /></a>
         </div>
 
         <div className='navigation-bar__actions'>
