@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import unicodeMapping from '../features/emoji/emoji_unicode_mapping_light';
 
-const assetHost = process.env.CDN_HOST || '';
+const assetHost = process.env.CDN_HOST || '/mstdn';
 
 export default class AutosuggestEmoji extends React.PureComponent {
 

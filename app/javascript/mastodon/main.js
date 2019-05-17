@@ -11,9 +11,10 @@ function main() {
 
   if (window.history && history.replaceState) {
     const { pathname, search, hash } = window.location;
-    const path = pathname + search + hash;
-    if (!(/^\/web[$/]/).test(path)) {
-      history.replaceState(null, document.title, `/web${path}`);
+    let path = pathname + search + hash;
+    if (!(/^\/mstdn\/web[$/]/).test(path)) {
+      path = path.replace(/^\/mstdn\/?/, '');
+      history.replaceState(null, document.title, `/mstdn/web${path}`);
     }
   }
 

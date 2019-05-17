@@ -48,7 +48,7 @@ class Api::PushController < Api::BaseController
   end
 
   def hub_topic_params
-    @_hub_topic_params ||= Rails.application.routes.recognize_path(hub_topic_uri.path)
+    @_hub_topic_params ||= UrlRecognizer.recognize(hub_topic_uri.path)
   end
 
   def hub_topic_uri

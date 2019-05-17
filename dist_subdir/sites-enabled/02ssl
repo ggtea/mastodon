@@ -1,0 +1,22 @@
+# ssl
+server {
+  listen 443 http2;
+  listen [::]:443 http2 ipv6only=on;
+  ssl on;
+  #ssl_certificate      /etc/letsencrypt/live/example.com/fullchain.pem; # should be customized.
+  #ssl_certificate_key  /etc/letsencrypt/live/example.com/privkey.pem; # should be customized.
+  include /etc/nginx/sites-parts/sslconf;
+  add_header Strict-Transport-Security "max-age=0;"; # not force ssl when subdir installation.
+  #add_header Strict-Transport-Security "max-age=31536000"; # use this if you force ssl.
+  server_name example.com; # should be customized.
+  set $processed_by 'nginx';
+
+  root /var/www/html; # should be customized.
+  index index.html index.htm;
+
+  # Your settings here.
+
+  #error_page 500 501 502 503 504 /500.html; # If you use Mastodon's error page.
+  # for Mastodon
+  include /etc/nginx/sites-parts/mastodon;
+}

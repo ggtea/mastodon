@@ -41,8 +41,8 @@ Rails.application.routes.draw do
     confirmations:      'auth/confirmations',
   }
 
-  get '/users/:username', to: redirect('/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
-  get '/authorize_follow', to: redirect { |_, request| "/authorize_interaction?#{request.params.to_query}" }
+  get '/users/:username', to: redirect('/mstdn/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
+  get '/authorize_follow', to: redirect { |_, request| "/mstdn/authorize_interaction?#{request.params.to_query}" }
 
   resources :accounts, path: 'users', only: [:show], param: :username do
     resources :stream_entries, path: 'updates', only: [:show] do
@@ -244,7 +244,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/admin', to: redirect('/admin/dashboard', status: 302)
+  get '/admin', to: redirect('/mstdn/admin/dashboard', status: 302)
 
   namespace :api do
     # PubSubHubbub outgoing subscriptions

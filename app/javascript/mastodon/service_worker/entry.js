@@ -10,7 +10,7 @@ function openWebCache() {
 }
 
 function fetchRoot() {
-  return fetch('/', { credentials: 'include', redirect: 'manual' });
+  return fetch('/mstdn/', { credentials: 'include', redirect: 'manual' });
 }
 
 // const firefox = navigator.userAgent.match(/Firefox\/(\d+)/);
@@ -27,7 +27,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   const url = new URL(event.request.url);
 
-  if (url.pathname.startsWith('/web/')) {
+  if (url.pathname.startsWith('/web/') || url.pathname.startsWith('/mstdn/web/')) {
     const asyncResponse = fetchRoot();
     const asyncCache = openWebCache();
 
@@ -38,7 +38,7 @@ self.addEventListener('fetch', function(event) {
         return response;
       },
       () => asyncCache.then(cache => cache.match('/'))));
-  } else if (url.pathname === '/auth/sign_out') {
+  } else if (url.pathname === '/auth/sign_out' || url.pathname === '/mstdn/auth/sign_out') {
     const asyncResponse = fetch(event.request);
     const asyncCache = openWebCache();
 
@@ -52,7 +52,7 @@ self.addEventListener('fetch', function(event) {
 
       return response;
     }));
-  } /* else if (storageFreeable && (ATTACHMENT_HOST ? url.host === ATTACHMENT_HOST : url.pathname.startsWith('/system/'))) {
+  } /* else if (storageFreeable && (ATTACHMENT_HOST ? url.host === ATTACHMENT_HOST : (url.pathname.startsWith('/system/') || url.pathname.startsWith('/mstdn/system/')))) {
     event.respondWith(openSystemCache().then(cache => {
       return cache.match(event.request.url).then(cached => {
         if (cached === undefined) {

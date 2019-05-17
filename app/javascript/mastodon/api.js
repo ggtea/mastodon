@@ -28,6 +28,8 @@ export default getState => axios.create({
     'Authorization': `Bearer ${getState().getIn(['meta', 'access_token'], '')}`,
   } : {}),
 
+  baseURL: '/mstdn',
+  
   transformResponse: [function (data) {
     try {
       return JSON.parse(data);

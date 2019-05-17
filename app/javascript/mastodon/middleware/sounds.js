@@ -26,11 +26,11 @@ export default function soundsMiddleware() {
   const soundCache = {
     boop: createAudio([
       {
-        src: '/sounds/boop.ogg',
+        src: '/mstdn/sounds/boop.ogg',
         type: 'audio/ogg',
       },
       {
-        src: '/sounds/boop.mp3',
+        src: '/mstdn/sounds/boop.mp3',
         type: 'audio/mpeg',
       },
     ]),

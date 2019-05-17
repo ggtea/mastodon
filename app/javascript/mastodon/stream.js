@@ -75,7 +75,7 @@ export default function getStream(streamingAPIBaseURL, accessToken, stream, { co
     params.push(`access_token=${accessToken}`);
   }
 
-  const ws = new WebSocketClient(`${streamingAPIBaseURL}/api/v1/streaming/?${params.join('&')}`);
+  const ws = new WebSocketClient(`${streamingAPIBaseURL}/mstdn/api/v1/streaming/?${params.join('&')}`);
 
   ws.onopen      = connected;
   ws.onmessage   = e => received(JSON.parse(e.data));

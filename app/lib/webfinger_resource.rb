@@ -33,7 +33,7 @@ class WebfingerResource
   end
 
   def path_params
-    Rails.application.routes.recognize_path(resource)
+    UrlRecognizer.recognize(resource)
   end
 
   def username_from_acct

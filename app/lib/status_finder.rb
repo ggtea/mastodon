@@ -25,7 +25,7 @@ class StatusFinder
   private
 
   def recognized_params
-    Rails.application.routes.recognize_path(url)
+    UrlRecognizer.recognize(url)
   end
 
   def verify_action!
